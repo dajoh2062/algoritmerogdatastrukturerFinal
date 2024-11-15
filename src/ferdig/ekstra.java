@@ -1,3 +1,5 @@
+package ferdig;
+
 import java.util.Random;
 
 public class ekstra {
