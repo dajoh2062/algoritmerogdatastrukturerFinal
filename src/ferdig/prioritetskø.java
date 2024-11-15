@@ -17,6 +17,20 @@ public class prioritetskø<T> {
             this(verdi, null);
         }
     }
+    private int antall;
+    public String toString() {
+        StringBuilder ut = new StringBuilder("[");
+        Node<T> current = førstePri;
+        while (current != null) {
+            ut.append(current.verdi).append(", ");
+            current = current.neste;
+        }
+        if (antall > 0) {
+            ut.setLength(ut.length() - 2);
+        }
+        ut.append("]");
+        return ut.toString();
+    }
 
     private Node<T> førstePri;
     private final Comparator<T> c;
@@ -31,18 +45,21 @@ public class prioritetskø<T> {
             førstePri = new Node<>(verdi, førstePri);
         } else {
             Node<T> p = førstePri;
-            while (p.neste != null && c.compare(verdi, p.neste.verdi) < 0) {
+            while (p.neste != null && c.compare(verdi, p.neste.verdi) >= 0) {
                 p = p.neste;
             }
             p.neste = new Node<>(verdi, p.neste);
         }
+        antall++;
     }
 
     public T taut() {
         if (førstePri == null) throw new NoSuchElementException("Køen er tom");
         T verdi = førstePri.verdi;
-        førstePri = førstePri.neste; // Flytt første til neste node
+        førstePri = førstePri.neste;
+        antall--;
         return verdi;
+
     }
 
     public T se() {
