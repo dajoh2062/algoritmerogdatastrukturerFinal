@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Objects;
 
-public class TabellListe<T> {
+public class TabellListe<T> implements Iterable<T> {
 
         private T[] tabellListe;
         private int antall;
@@ -97,4 +97,27 @@ public class TabellListe<T> {
                 return tabellListe[i++];
             }
         }
+
+    public static void main(String[] args) {
+
+        TabellListe<Integer> liste = new TabellListe<>(10);
+        liste.leggInn(2);
+        liste.leggInn(3);
+        liste.leggInn(4);
+        System.out.println(liste.toString());
+        System.out.println(liste.antall());
+
+
+        Iterator<Integer> it = liste.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+
+        for(Integer i : liste) {
+            System.out.println(i);
+        }
     }
+    }
+
+
+
