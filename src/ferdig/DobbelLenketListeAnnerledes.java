@@ -1,7 +1,7 @@
 package ferdig;
 
 public class DobbelLenketListeAnnerledes {
-    class DobbeltLenketListeV1<T> {
+    static class DobbeltLenketListeV1<T> {
         private static final class Node<T> {
             T verdi;
             Node<T> forrige, neste;

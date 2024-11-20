@@ -1,3 +1,5 @@
+package ferdig;
+
 import java.util.Objects;
 
 public class hash<K, V>  {
