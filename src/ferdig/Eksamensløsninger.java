@@ -78,4 +78,4 @@ public class Eksamensløsninger {
             return false;
         }
     }
-}
+
